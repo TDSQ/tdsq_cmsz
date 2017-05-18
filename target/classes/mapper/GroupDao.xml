@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cmsz.dao.GroupMapper" >
+  <resultMap id="BaseResultMap" type="com.cmsz.bean.Group" >
+    <id column="groupid" property="groupid" jdbcType="INTEGER" />
+    <result column="group_tm" property="groupTm" jdbcType="INTEGER" />
+    <result column="groupname" property="groupname" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    groupid, group_tm, groupname
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from group
+    where groupid = #{groupid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from group
+    where groupid = #{groupid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cmsz.bean.Group" >
+    insert into group (groupid, group_tm, groupname
+      )
+    values (#{groupid,jdbcType=INTEGER}, #{groupTm,jdbcType=INTEGER}, #{groupname,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.cmsz.bean.Group" >
+    insert into group
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="groupid != null" >
+        groupid,
+      </if>
+      <if test="groupTm != null" >
+        group_tm,
+      </if>
+      <if test="groupname != null" >
+        groupname,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="groupid != null" >
+        #{groupid,jdbcType=INTEGER},
+      </if>
+      <if test="groupTm != null" >
+        #{groupTm,jdbcType=INTEGER},
+      </if>
+      <if test="groupname != null" >
+        #{groupname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cmsz.bean.Group" >
+    update group
+    <set >
+      <if test="groupTm != null" >
+        group_tm = #{groupTm,jdbcType=INTEGER},
+      </if>
+      <if test="groupname != null" >
+        groupname = #{groupname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where groupid = #{groupid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cmsz.bean.Group" >
+    update group
+    set group_tm = #{groupTm,jdbcType=INTEGER},
+      groupname = #{groupname,jdbcType=VARCHAR}
+    where groupid = #{groupid,jdbcType=INTEGER}
+  </update>
+</mapper>

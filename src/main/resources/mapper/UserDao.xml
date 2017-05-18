@@ -25,6 +25,7 @@
   <select id="selectByPrimaryKey2" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
+<<<<<<< HEAD
     from users
     where userid = #{userid,jdbcType=INTEGER}
   </select>
@@ -33,6 +34,14 @@
     select 
     <include refid="Base_Column_List" />
     from users
+	OOOOOOKKKKKKKKK
+    where userid = #{userid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByPrimaryKey3" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from usersssssssssss   OOOOOOKKKKKKKKK
     where userid = #{userid,jdbcType=INTEGER}
   </select>
   

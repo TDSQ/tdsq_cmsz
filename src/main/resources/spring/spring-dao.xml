@@ -70,6 +70,7 @@
         <property name="basePackage" value="com.comsz.dao"/>
         <!-- 注入 SqlSessionFactory -->
         <!-- 这是推荐配置的项，不要去配置 sqlSessionFactory ，已经被弃用了-->
+        <!--  -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
